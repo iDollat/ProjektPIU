@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    box-sizing: border-box;
+}
+
+img{
+    width: 100%;
+    display: flex;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #151523;
+}
+
+nav{
+    max-width: 100%;
+    margin: auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: #151523;
+    border-bottom: 1px solid #c2d700;
+}
+
+.nav-logo{
+    margin-left: 150px;
+    max-width: 120px;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.link a{
+    position: relative;
+    padding-bottom: 0.75rem;
+    color: #fff;
+}
+
+.link a::after{
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #c2d700;
+    transition: all 0.3s ease;
+}
+
+.link a:hover::after{
+    width: 70%;
+}
+
+.btn{
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #151523;
+    background-color: #c2d700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav .btn{
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    color: #151523;
+    background-color: #c2d700;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 150px;
+}
+
+.btn:hover{
+    background-color: #c2d700;
+    box-shadow: 0 0 25px 0 #c2d700;
+}
+ 
+.container {
+    max-width: 1200px;
+    margin: auto;
+    opacity: 0; 
+    transform: translateX(20px); /* Przesunięcie na początek jest mniejsze */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Skrócono czas przejścia */
+}
+
+.container.active {
+    opacity: 1; 
+    transform: translateX(0); /* Powrót do pozycji początkowej */
+}
+
+.blur{
+    position: relative;
+    box-shadow: 0 0 1000px 50px #c2d700;
+    z-index: -100;
+}
+
+header{
+    position: relative;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+header .content h4{
+    margin-bottom: 1rem;
+    color: #ccc;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+header .content h1{
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 4rem;
+}
+
+.animated{
+    -webkit-text-stroke: 1px #3e3e54;
+    color: #151523;
+    font-size: 3rem;
+    position: relative;
+}
+
+.animated::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #c2d700;
+    -webkit-text-stroke: 1.5px #c2d700;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+header .content p{
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+header .image{
+    position: relative;
+}
+
+header .image::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 38rem;
+    font-weight: 400;
+    line-height: 20rem;
+    color: #c2d700;
+    opacity: 0.2;
+    z-index: -100;
+}
+
+header .image img{
+    max-width: 600px;
+    margin: auto;
+    transition: 1.5s;
+    opacity: 100%;
+    border-radius: 300px;
+}
+
+header .image img:hover{
+    max-width: 600px;
+    margin: auto;
+    opacity: 20%;
+    transition: 1.5s;
+}
+
+
+@keyframes animate {
+    0%, 15%, 100% {
+        width: 0;
+    }
+    50%, 85% {
+        width: 100%;
+    }
+}
+
+/* Dodaj styl do sekcji kalkulatora BMI */
+#bmi-calculator {
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    color: white;
+}
+
+.bmi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.bmi-form label {
+    font-weight: 600;
+}
+
+.bmi-form input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 400px;
+}
+
+.bmi-result {
+    margin-top: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Stylowanie kalkulatora kalorii */
+#calorie-calculator {
+    padding: 2rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    color: white;
+}
+
+.calorie-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.calorie-form label {
+    font-weight: 600;
+}
+
+.calorie-form input, .calorie-form select { /* Zmieniono selektor */
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 400px;
+}
+
+.calorie-result {
+    margin-top: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+#glowka {
+    stroke-width: 0.3; /* Grubość obramowania */
+    stroke: #000000; /* Kolor obramowania */
+    transform: translateY(400px) translateX(10px) scale(3.5); 
+}
+
+#glowka:hover {
+    fill: #c2d700; 
+    cursor: pointer; 
+}
+
+#glowka2 {
+    stroke-width: 0.3; /* Grubość obramowania */
+    stroke: rgb(0, 0, 0); /* Kolor obramowania */
+    transform: translateY(400px) translateX(-315px) scale(3.5); 
+}
+
+#glowka2:hover {
+    fill: #c2d700; 
+    cursor: pointer; 
+}
+
+#Front {
+    margin-top: 50px;
+    border-radius: 3%; 
+}
+#Back {
+    margin-top: 50px;
+    margin-left:50px;
+    border-radius: 3%;
+}
+
+#Front:hover, #Back:hover{
+    box-shadow: 0 0 25px 0 #c2d700;
+    transition: all 0.3s ease;
+}
+
+.headers {
+    margin-top: 30px;
+    display: flex;
+    width: 650px;
+    margin-left: 134px;
+}
+
+h4 {
+    color: #fff;
+    margin-right: 306px;
+}
