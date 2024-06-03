@@ -374,6 +374,7 @@ h4 {
     width: 100%; /* Szerokość elementu listy */
     height: 40px; /* Wysokość elementu listy */
     border-radius: 5px; /* Zaokrąglenie krawędzi */
+    margin: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -397,5 +398,3 @@ h4 {
     background-color: #c2d700; /* Ciemniejszy niebieski dla nieparzystych elementów */
     color: #000000;
 }
-
-
