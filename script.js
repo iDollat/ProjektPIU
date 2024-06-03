@@ -12,6 +12,13 @@ function scrollToSectionWithOffset(sectionId) {
     }
 }
 
+document.querySelectorAll('svg path').forEach(path => {
+    path.addEventListener('click', function() {
+        const text = this.getAttribute('data-text');
+        document.getElementById('exercise-info').textContent = text;
+    });
+});
+
 // Dodaj nasłuchiwacze do linków w nawigacji
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -46,7 +53,7 @@ function calculateCalories() {
     document.getElementById("calorie-result").textContent = "Your estimated daily caloric need is " + tdee.toFixed(0) + " kcal.";
 }
 
-function goToLogin() {
+function logOut() {
     window.location.href = "singup.php";
 }
 
