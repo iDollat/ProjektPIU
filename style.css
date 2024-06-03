@@ -362,7 +362,7 @@ h4 {
 .exercise-info h3 {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .exercise-info ul {
@@ -373,17 +373,29 @@ h4 {
 .exercise-info li {
     width: 100%; /* Szerokość elementu listy */
     height: 40px; /* Wysokość elementu listy */
-    margin-bottom: 5px;
-    background-color: #007bff; /* Dodajemy tło */
     border-radius: 5px; /* Zaokrąglenie krawędzi */
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .exercise-info li:before {
     color: #fff; /* Zmieniamy kolor kropki */
     margin-right: 5px;
+}
+
+.exercise-info li:nth-child(odd) {
+    background-color: #090923; /* Ciemniejszy niebieski dla nieparzystych elementów */
+}
+
+.exercise-info li:nth-child(even) {
+    background-color: #151530; /* Jaśniejszy niebieski dla parzystych elementów */
+}
+
+.exercise-info li:hover {
+    background-color: #c2d700; /* Ciemniejszy niebieski dla nieparzystych elementów */
+    color: #000000;
 }
 
 
