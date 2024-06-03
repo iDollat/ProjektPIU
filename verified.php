@@ -20,7 +20,9 @@
             <li class="link"><a href="#">More</a></li>
         </ul>
 
-        <button class="btn" onclick="goToLogin()">Log in</button>
+        <form method="post">
+            <button type="submit" name="logout" class="btn">Log Out</button>
+        </form>
     </nav>
 
     <script src="script.js"></script>
