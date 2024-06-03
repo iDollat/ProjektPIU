@@ -136,5 +136,3 @@ document.addEventListener('scroll', () => {
         }
     });
 });
-
-// można zrobić z tych animowanych napisów coś w stylu progress bara
