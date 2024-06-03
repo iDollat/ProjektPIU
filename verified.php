@@ -26,16 +26,19 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!empty($result)) {
     if ($result['verified']) {
-        $message = "Użytkownik zweryfikowany";
+        $message = "Verified user";
         $boxClass = "verified-box";
+        $icon = '<i class="ri-check-line"></i>';
     } else {
-        $message = "Użytkownik niezweryfikowany";
+        $message = "Unverified user";
         $boxClass = "unverified-box";
+        $icon = '<i class="ri-close-line"></i>'; // Puste, jeśli użytkownik nie jest zweryfikowany
     }
 } else {
     // Jeżeli użytkownik nie istnieje w bazie danych, możesz obsłużyć to według potrzeb
-    $message = "Błąd: użytkownik nie istnieje";
+    $message = "Error: User does not exist";
     $boxClass = "unverified-box"; // Tutaj możesz ustawić odpowiednią klasę CSS dla komunikatu o błędzie
+    $icon = ''; // Puste, jeśli użytkownik nie istnieje
 }
 
 if (isset($_POST['send_code'])) {
@@ -46,11 +49,13 @@ if (isset($_POST['send_code'])) {
         $stmt = $conn->prepare("UPDATE project_psm.users SET verified = true WHERE email = :email");
         $stmt->bindParam(':email', $email);
         $stmt->execute();
-        $message = "Kod weryfikacyjny poprawny. Użytkownik został zweryfikowany.";
+        $message = "Valid verification code. User has been verified.";
         $boxClass = "verified-box";
+        $icon = '<i class="ri-check-line"></i>'; // Dodaj ikonkę, jeśli użytkownik zostanie zweryfikowany
     } else {
-        $message = "Błąd: Wprowadzony kod weryfikacyjny jest niepoprawny.";
-        $boxClass = "unverified-box"; // Tutaj możesz ustawić odpowiednią klasę CSS dla komunikatu o błędzie
+        $message = "Error: Verification code is invalid.";
+        $boxClass = "unverified-box";
+        $icon = ''; // Puste, jeśli kod weryfikacyjny jest nieprawidłowy
     }
 }
 ?>
@@ -63,32 +68,8 @@ if (isset($_POST['send_code'])) {
     <title>FittBase</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="verify.css">
     <link rel="icon" href="img/logo.png">
-    <style>
-        .box {
-            width: 300px;
-            height: 200px; /* Zwiększyłem wysokość dla umieszczenia pola kodu */
-            background-color: #f0f0f0;
-            text-align: center;
-            line-height: 150px;
-            margin: 0 auto;
-            margin-top: 100px;
-            color: white; /* Nowy styl dla koloru tekstu */
-        }
-
-        .verified-box {
-            background-color: green; /* Dodatkowo zmieniłem kolor tła dla lepszej widoczności */
-        }
-
-        .unverified-box {
-            background-color: red; /* Dodatkowo zmieniłem kolor tła dla lepszej widoczności */
-        }
-
-        /* Nowy styl dla formularza */
-        .verification-form {
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <nav class="nav">
@@ -99,8 +80,7 @@ if (isset($_POST['send_code'])) {
         </div>
 
         <ul class="nav-links">
-            <li class="link"><a href="#home" onclick="goToHome()">Main Page</a></li>
-            <li class="link"><a href="#">More</a></li>
+            <li class="link"><a href="#home" onclick="goToHome()">Back to Home</a></li>
         </ul>
 
         <form method="post">
@@ -109,11 +89,12 @@ if (isset($_POST['send_code'])) {
     </nav>
 
     <div class="box <?php echo $boxClass; ?>">
+        <?php echo $icon; ?>
         <?php echo $message; ?>
         <?php if (!$result['verified']) { ?>
             <form class="verification-form" method="post">
-                <input type="text" name="verification_code" placeholder="Wprowadź kod weryfikacyjny" required>
-                <button type="submit" name="send_code" class="btn">Potwierdź kod</button>
+                <input type="text" name="verification_code" placeholder="Enter verification code" required>
+                <button type="submit" name="send_code" class="btn">Verify code</button>
             </form>
         <?php } ?>
     </div>
