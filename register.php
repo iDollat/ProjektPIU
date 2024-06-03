@@ -52,8 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':verification_code', $verification_code);
         
         if ($stmt->execute()) {
-            echo "<script>alert('User Created');</script>";
-
+            
             $mail = new PHPMailer(true);
             $mail->isSMTP();
             $mail->Host = "smtp.gmail.com";
@@ -68,6 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Subject = "Thanks for joining in!";
             $mail->Body = "We really appreciate it. Your verification code is: $verification_code";
             $mail->send();
+
+            $error_message = "Thanks for joining in! You can now login in!";
         } else {
             echo "<script>alert('Error while creating user');</script>";
         }

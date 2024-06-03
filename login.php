@@ -23,12 +23,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>window.location.href = 'index.php';</script>";
         } else {
             $error_message = 'Incorrect username or password!';
+            header("Location: singup.php?error=" . urlencode($error_message));
+            exit;
         }
     } else {
         $error_message = 'Incorrect username or password!';
+        header("Location: singup.php?error=" . urlencode($error_message));
+        exit;
     }
-
-    header("Location: singup.php?error=" . urlencode($error_message));
-    exit;
 }
 ?>
