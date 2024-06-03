@@ -371,9 +371,10 @@ h4 {
 }
 
 .exercise-info li {
-    width: 200px; /* Szerokość elementu listy */
+    width: 100%; /* Szerokość elementu listy */
     height: 40px; /* Wysokość elementu listy */
     margin-bottom: 5px;
+    background-color: #007bff; /* Dodajemy tło */
     border-radius: 5px; /* Zaokrąglenie krawędzi */
     display: flex;
     justify-content: center;
@@ -381,8 +382,8 @@ h4 {
 }
 
 .exercise-info li:before {
-    content: "•";
     color: #fff; /* Zmieniamy kolor kropki */
     margin-right: 5px;
 }
+
 
