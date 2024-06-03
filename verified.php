@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+if (isset($_POST['logout'])) {
+    session_destroy();
+    header("Location: singup.php");
+    exit;
+}
+
+if (!isset($_SESSION['user_logged_in'])) {
+    header("Location: singup.php");
+}
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
