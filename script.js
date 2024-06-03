@@ -12,13 +12,6 @@ function scrollToSectionWithOffset(sectionId) {
     }
 }
 
-document.querySelectorAll('svg path').forEach(path => {
-    path.addEventListener('click', function() {
-        const text = this.getAttribute('data-text');
-        document.getElementById('exercise-info').textContent = text;
-    });
-});
-
 // Dodaj nasłuchiwacze do linków w nawigacji
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -144,4 +137,27 @@ document.addEventListener('scroll', () => {
     });
 });
 
-// można zrobić z tych animowanych napisów coś w stylu progress bara
+// Funkcja do obsługi kliknięć na elemencie SVG dla Front
+function handleFrontClick(event) {
+    if (event.target.tagName === "path") {
+        const clickedPathId = event.target.id;
+        const exerciseInfoDiv = document.querySelector(".exercise-info");
+        exerciseInfoDiv.textContent = clickedPathId;
+    }
+}
+
+// Funkcja do obsługi kliknięć na elemencie SVG dla Back
+function handleBackClick(event) {
+    if (event.target.tagName === "path") {
+        const clickedPathId = event.target.id;
+        const exerciseInfoDiv = document.querySelector(".exercise-info");
+        exerciseInfoDiv.textContent = clickedPathId;
+    }
+}
+
+// Dodaj nasłuchiwacze zdarzeń dla Front i Back
+const frontSVG = document.getElementById("Front");
+frontSVG.addEventListener("click", handleFrontClick);
+
+const backSVG = document.getElementById("Back");
+backSVG.addEventListener("click", handleBackClick);

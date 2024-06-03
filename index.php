@@ -69,7 +69,7 @@ if (!isset($_SESSION['user_logged_in'])) {
         
         <h2 class="title"><span class="animated" data-text="Exercises">Exercises</span></h2>
         <span class="blur"></span>
-        <div>
+        <div class="exercises-container">
             <div class="headers">
                 <h4>Front</h4>
                 <h4>Back</h4>
@@ -97,7 +97,7 @@ if (!isset($_SESSION['user_logged_in'])) {
                 M 31 -24 L 33 -24 L 34 -21 L 33 -15 L 32 -12 L 29 -5 L 31 -24 M 54 -26 L 56 -22 L 56 -19 L 55 -9 L 56 -5 L 54 -5 L 52 -23 L 54 -26
                 M 51 -24 L 49 -24 L 48 -21 L 49 -15 L 50 -12 L 53 -5 L 51 -24" fill="white"/><!--lydki-->           
             </svg>
-            <svg id="Back" width="300" height="400">   
+            <svg id="Back" width="300" height="400">
                 <path id="head" d="M 132 -109 L 128 -107 L 127 -103 L 129 -98 L 133 -95 L 137 -98 L 139 -103 L 138 -107 L 134 -109 L 132 -109" fill="white"/>      
                 <path id="trapezius" d="M 132 -94 L 129 -96 L 129 -94 L 128 -92 L 126 -91 L 123 -89 L 125 -87 L 127 -80 L 132 -74 L 132 -94 M 134 -94 L 137 -96 L 137 -94 L 138 -92 L 140 -91 L 143 -89 L 141 -87 L 139 -80 L 134 -74 L 134 -94" fill="white"/> <!--czworoboczne-->   
                 <path id="shoulders" d="M 122 -89 L 118 -88 L 115 -85 L 116 -80 L 121 -84 L 122 -89 M 144 -89 L 148 -88 L 151 -85 L 150 -80 L 145 -84 L 144 -89" fill="white"/> <!--barki-->
@@ -128,7 +128,10 @@ if (!isset($_SESSION['user_logged_in'])) {
                 M 144 -24 L 142 -20 L 143 -18 L 144 -14 L 144 -7 L 146 -5 L 146 -14 L 144 -21 L 144 -24
                 M 140 -21 L 139 -19 L 139 -8 L 141 -3 L 143 -7 L 143 -14 L 142 -18 L 140 -21" fill="white"/> <!--lydki-->
             </svg>
-          </div>
+        </div>
+        <div class="exercise-info">
+            <p>test</p>
+        </div>
     </div>
 
     <section class="container" id="bmi-calculator">

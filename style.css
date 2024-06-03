@@ -333,3 +333,23 @@ h4 {
     color: #fff;
     margin-right: 306px;
 }
+
+.container #exercises {
+    display: flex;
+}
+
+.exercise-info {
+    float: right;
+    width: 30%;
+    color: #fff;
+    height: 512px;
+    text-align: center;
+    display: flex; /* Flexbox, aby umożliwić centrowanie w pionie */
+    justify-content: center; /* Centrowanie w poziomie */
+    align-items: center; /* Centrowanie w pionie */
+}
+
+.exercises-container {
+    display: inline-block;
+    width: 70%;
+}
