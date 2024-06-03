@@ -47,11 +47,15 @@ function calculateCalories() {
 }
 
 function goToLogin() {
-    window.location.href = "login.html";
+    window.location.href = "singup.php";
 }
 
 function goToHome() {
-    window.location.href = "index.html";
+    window.location.href = "index.php";
+}
+
+function goToVerified() {
+    window.location.href = "verified.php";
 }
 
 // Funkcje dla formularza rejestracji/logowania (jeśli występują w innych częściach strony)
