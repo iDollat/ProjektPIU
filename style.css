@@ -139,25 +139,6 @@ header .content h1{
     line-height: 4rem;
 }
 
-.animated{
-    -webkit-text-stroke: 1px #3e3e54;
-    color: #151523;
-    font-size: 3rem;
-    position: relative;
-}
-
-.animated::before{
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    color: #c2d700;
-    -webkit-text-stroke: 1.5px #c2d700;
-    overflow: hidden;
-    animation: animate 6s linear infinite;
-}
 
 header .content p{
     margin-bottom: 2rem;
@@ -197,6 +178,26 @@ header .image img:hover{
     transition: 1.5s;
 }
 
+.animated {
+    -webkit-text-stroke: 1px #3e3e54;
+    color: #151523;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: transparent; /* Zmieniono na transparent */
+    -webkit-text-stroke: 1.5px #c2d700;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
 
 @keyframes animate {
     0%, 15%, 100% {
@@ -204,7 +205,14 @@ header .image img:hover{
     }
     50%, 85% {
         width: 100%;
+        color: #c2d700;;
     }
+}
+
+.animated.fill::before {
+    width: 100%;
+    animation: none;
+    color: #c2d700; /* Dodano kolor wypełnienia po zakończeniu animacji */
 }
 
 /* Dodaj styl do sekcji kalkulatora BMI */
