@@ -58,7 +58,6 @@
                         <h1>You're New Here?</h1>
                         <p>Register Now!</p>
                         <button class="hidden" id="register">Sign Up</button>
-                        <button onclick="goToHome()">back</button>
                     </div>
                 </div>
                 
