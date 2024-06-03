@@ -338,18 +338,51 @@ h4 {
     display: flex;
 }
 
-.exercise-info {
-    float: right;
-    width: 30%;
-    color: #fff;
-    height: 512px;
-    text-align: center;
-    display: flex; /* Flexbox, aby umożliwić centrowanie w pionie */
-    justify-content: center; /* Centrowanie w poziomie */
-    align-items: center; /* Centrowanie w pionie */
-}
-
 .exercises-container {
     display: inline-block;
     width: 70%;
 }
+
+.exercise-info {
+    float: right;
+    width: 30%;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.exercise-info-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exercise-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.exercise-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.exercise-info li {
+    width: 200px; /* Szerokość elementu listy */
+    height: 40px; /* Wysokość elementu listy */
+    margin-bottom: 5px;
+    border-radius: 5px; /* Zaokrąglenie krawędzi */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exercise-info li:before {
+    content: "•";
+    color: #fff; /* Zmieniamy kolor kropki */
+    margin-right: 5px;
+}
+

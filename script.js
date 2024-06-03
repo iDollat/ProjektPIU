@@ -137,12 +137,24 @@ document.addEventListener('scroll', () => {
     });
 });
 
+const exercises = {
+    chest: ["wyciskanie sztangi leżąc", "wyciskanie hantli leżąc", "rozpiętki"],
+    // Dodaj inne części ciała i ich ćwiczenia tutaj
+};
+
 // Funkcja do obsługi kliknięć na elemencie SVG dla Front
 function handleFrontClick(event) {
     if (event.target.tagName === "path") {
         const clickedPathId = event.target.id;
         const exerciseInfoDiv = document.querySelector(".exercise-info");
-        exerciseInfoDiv.textContent = clickedPathId;
+        // Sprawdź, czy istnieje lista ćwiczeń dla klikniętej części ciała
+        if (exercises[clickedPathId]) {
+            // Jeśli tak, wyświetl listę ćwiczeń w .exercise-info
+            exerciseInfoDiv.innerHTML = "<h3>Ćwiczenia na " + clickedPathId + ":</h3><ul>" + exercises[clickedPathId].map(exercise => "<li>" + exercise + "</li>").join("") + "</ul>";
+        } else {
+            // Jeśli nie, wyświetl informację o braku ćwiczeń
+            exerciseInfoDiv.textContent = "Brak dostępnych ćwiczeń dla " + clickedPathId;
+        }
     }
 }
 
@@ -151,7 +163,14 @@ function handleBackClick(event) {
     if (event.target.tagName === "path") {
         const clickedPathId = event.target.id;
         const exerciseInfoDiv = document.querySelector(".exercise-info");
-        exerciseInfoDiv.textContent = clickedPathId;
+        // Sprawdź, czy istnieje lista ćwiczeń dla klikniętej części ciała
+        if (exercises[clickedPathId]) {
+            // Jeśli tak, wyświetl listę ćwiczeń w .exercise-info
+            exerciseInfoDiv.innerHTML = "<h3>Ćwiczenia na " + clickedPathId + ":</h3><ul>" + exercises[clickedPathId].map(exercise => "<li>" + exercise + "</li>").join("") + "</ul>";
+        } else {
+            // Jeśli nie, wyświetl informację o braku ćwiczeń
+            exerciseInfoDiv.textContent = "Brak dostępnych ćwiczeń dla " + clickedPathId;
+        }
     }
 }
 

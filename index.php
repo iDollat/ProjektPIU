@@ -130,7 +130,11 @@ if (!isset($_SESSION['user_logged_in'])) {
             </svg>
         </div>
         <div class="exercise-info">
-            <p>test</p>
+            <div class="exercise-info-content">
+                <ul id="exercise-list">
+                <!-- Lista ćwiczeń będzie generowana dynamicznie tutaj -->
+                </ul>
+            </div>
         </div>
     </div>
 
