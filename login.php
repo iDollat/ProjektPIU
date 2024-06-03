@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $host = '195.150.230.208';
 $port = '5432';
 $dbname = '2023_chmura_daniel';
@@ -19,12 +21,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $decoded_password = base64_decode($user['password']);
         
         if ($password == $decoded_password) {
-            echo "<script>alert('Login successful');</script>";
+            $_SESSION['user_logged_in'] = true;
+            $_SESSION['user_email'] = $email;
+            echo "<script>window.location.href = 'index.php';</script>";
         } else {
-            echo "<script>alert('Incorrect password');</script>";
+            $error_message = 'Incorrect username or password!';
+            header("Location: singup.php?error=" . urlencode($error_message));
+            exit;
         }
     } else {
-        echo "<script>alert('User not found');</script>";
+        $error_message = 'Incorrect username or password!';
+        header("Location: singup.php?error=" . urlencode($error_message));
+        exit;
     }
 }
 ?>

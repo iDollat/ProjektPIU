@@ -1,0 +1,45 @@
+.verified-box {
+    background: linear-gradient(45deg, #1b5e20, #388e3c, #1b5e20);
+}
+
+.unverified-box {
+    background: linear-gradient(45deg, #b71c1c, #d32f2f, #b71c1c);
+}
+
+.box {
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    line-height: 150px;
+    margin: 0 auto;
+    margin-top: 100px;
+    color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+/* Dodaj ten styl do klasy .verification-form w pliku verify.css */
+
+.verification-form {
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.verification-form input {
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #151523;
+    border: 1px solid #c2d700;
+    text-align: center;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}

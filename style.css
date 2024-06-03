@@ -139,42 +139,6 @@ header .content h1{
     line-height: 4rem;
 }
 
-.animated {
-    -webkit-text-stroke: 1px #3e3e54;
-    color: #151523;
-    font-size: 3rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.animated::before {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    color: transparent; /* Zmieniono na transparent */
-    -webkit-text-stroke: 1.5px #c2d700;
-    overflow: hidden;
-    animation: animate 6s linear infinite;
-}
-
-@keyframes animate {
-    0%, 15%, 100% {
-        width: 0;
-    }
-    50%, 85% {
-        width: 100%;
-        color: #c2d700;;
-    }
-}
-
-.animated.fill::before {
-    width: 100%;
-    animation: none;
-    color: #c2d700; /* Dodano kolor wypełnienia po zakończeniu animacji */
-}
 
 header .content p{
     margin-bottom: 2rem;
@@ -212,6 +176,43 @@ header .image img:hover{
     margin: auto;
     opacity: 20%;
     transition: 1.5s;
+}
+
+.animated {
+    -webkit-text-stroke: 1px #3e3e54;
+    color: #151523;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.animated::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: transparent; /* Zmieniono na transparent */
+    -webkit-text-stroke: 1.5px #c2d700;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+    0%, 15%, 100% {
+        width: 0;
+    }
+    50%, 85% {
+        width: 100%;
+        color: #c2d700;;
+    }
+}
+
+.animated.fill::before {
+    width: 100%;
+    animation: none;
+    color: #c2d700; /* Dodano kolor wypełnienia po zakończeniu animacji */
 }
 
 /* Dodaj styl do sekcji kalkulatora BMI */
@@ -284,24 +285,24 @@ header .image img:hover{
     text-align: center;
 }
 
-#glowka {
+#Front path {
     stroke-width: 0.3; /* Grubość obramowania */
     stroke: #000000; /* Kolor obramowania */
     transform: translateY(400px) translateX(10px) scale(3.5); 
 }
 
-#glowka:hover {
+#Front path:hover {
     fill: #c2d700; 
     cursor: pointer; 
 }
 
-#glowka2 {
+#Back path {
     stroke-width: 0.3; /* Grubość obramowania */
     stroke: rgb(0, 0, 0); /* Kolor obramowania */
     transform: translateY(400px) translateX(-315px) scale(3.5); 
 }
 
-#glowka2:hover {
+#Back path:hover {
     fill: #c2d700; 
     cursor: pointer; 
 }
@@ -331,4 +332,69 @@ header .image img:hover{
 h4 {
     color: #fff;
     margin-right: 306px;
+}
+
+.container #exercises {
+    display: flex;
+}
+
+.exercises-container {
+    display: inline-block;
+    width: 70%;
+}
+
+.exercise-info {
+    float: right;
+    width: 30%;
+    color: #fff;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.exercise-info-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exercise-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.exercise-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.exercise-info li {
+    width: 100%; /* Szerokość elementu listy */
+    height: 40px; /* Wysokość elementu listy */
+    border-radius: 5px; /* Zaokrąglenie krawędzi */
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.exercise-info li:before {
+    color: #fff; /* Zmieniamy kolor kropki */
+    margin-right: 5px;
+}
+
+.exercise-info li:nth-child(odd) {
+    background-color: #090923; /* Ciemniejszy niebieski dla nieparzystych elementów */
+}
+
+.exercise-info li:nth-child(even) {
+    background-color: #151530; /* Jaśniejszy niebieski dla parzystych elementów */
+}
+
+.exercise-info li:hover {
+    background-color: #c2d700; /* Ciemniejszy niebieski dla nieparzystych elementów */
+    color: #000000;
 }

@@ -9,6 +9,13 @@
 </head>
 <body>
 
+    <?php
+        if (isset($_GET['error'])) {
+            $errorMessage = htmlspecialchars($_GET['error']);
+            echo "<script>alert('$errorMessage');</script>";
+        }
+    ?>
+
     <div class="background-container">
         <div class="background-left"></div>
         <div class="background-right"></div>
@@ -51,7 +58,6 @@
                         <h1>You're New Here?</h1>
                         <p>Register Now!</p>
                         <button class="hidden" id="register">Sign Up</button>
-                        <button onclick="goToHome()">back</button>
                     </div>
                 </div>
                 
@@ -59,6 +65,7 @@
             
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

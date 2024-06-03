@@ -1,3 +1,8 @@
+window.addEventListener('load', () => {
+    const home = document.querySelector('#home')
+
+    home.classList.add('active');
+});
 // Funkcja, która przewija do sekcji z uwzględnieniem offsetu (wysokości nawigacji)
 function scrollToSectionWithOffset(sectionId) {
     const section = document.querySelector(sectionId);
@@ -46,7 +51,7 @@ function calculateCalories() {
     document.getElementById("calorie-result").textContent = "Your estimated daily caloric need is " + tdee.toFixed(0) + " kcal.";
 }
 
-function goToLogin() {
+function logOut() {
     window.location.href = "singup.php";
 }
 
@@ -122,6 +127,12 @@ document.addEventListener('scroll', () => {
     nav.style.borderImage = `linear-gradient(to right, #c2d700 ${scrolledPercent}%, transparent ${scrolledPercent}%) 1`; // Pasek progresu
 });
 
+window.addEventListener('load', () => {
+    const home = document.querySelector('#home')
+
+    home.classList.add('active');
+});
+
 document.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('.container'); // Pobierz wszystkie sekcje
 
@@ -135,4 +146,98 @@ document.addEventListener('scroll', () => {
             section.classList.remove('active'); // Usuń klasę, jeśli sekcja nie jest w widoku
         }
     });
+});
+
+const exercises = {
+    Chest: ["Bench press", "Dumbell press", "Chest flyes"],
+    Trapezius:["Shrugs","Barbell Overhead Press"],
+    Shoulders:["Dumbbell Lateral Raise","Dumbell Overhead Press","Bent Over Dumbbell Reverse Fly","Barbell Upright Row","Rear Delt Dumbbell Row To Neck"],
+    Biceps: ["Biceps Curl","Close-Grip Chin-Ups","Standing Hammer Curl","Seated Hammer Curl","Incline Dumbbell Curl"],
+    Thighs:["Deep Squat","Dumbbell Squat","Front Squat","Hack Squat","Leg Extension","Barbell Lunge"],
+    Forearms:["Seated Barbell Wrist Curl","Reverse Grip Barbell Curl (EZ Bar)","Plate Pinch Carry","Behind-The-Back Barbell Wrist Curl"],// Dodaj inne części ciała i ich ćwiczenia tutaj
+    Abs:["Crunches","Bird Dogs","Leg Raises","Side Plank","Russian Twists"],
+    Calves:["Seated calf raise","Standing Barbell Calf Raise","Farmer’s Walk (on Tiptoes)"],
+    Lats:["Lat Pull Down","Straight Arm Lat Pull Down","Wide Grip Pull Up","Shotgun Row","V-Bar Pull Up","Underhand Close Grip Lateral Pulldown"],
+    Triceps:["EZ Bar Skullcrusher","Close Grip Bench Press","Weighted Tricep Dips","Straight Bar Tricep Extension","Lying Dumbbell Extension"],
+    'Lower back':["Superman","Smith Machine Deadlift","90/90 Hip Crossover"],
+    Glutes:["Hyperextension","Barbell Hip Thrust","Good Mornings","Wide Smith Machine Squat"],
+    Hamstrings:["Stiff Leg Deadlift","Conventional Deadlift","Leg Curl","Trap Bar Rack Pull"]
+};
+
+// Tablica linków do poradników na YouTube
+const links = {
+    Chest: ["https://www.youtube.com/watch?v=8_33og5lN-Y", "https://www.youtube.com/watch?v=xDnm_FhewyI", "https://www.youtube.com/watch?v=Nhvz9EzdJ4U"],
+    Trapezius:["https://www.youtube.com/watch?v=Qb6Bd1J954o","https://www.youtube.com/watch?v=zQRcZjp3ZVI&t=369s"],
+    Shoulders:["https://www.youtube.com/watch?v=5g5U2dIoeQ0","https://www.youtube.com/watch?v=M2rwvNhTOu0","https://www.youtube.com/watch?v=evXOlgLTPCw","https://www.youtube.com/watch?v=um3VVzqunPU","https://www.youtube.com/watch?v=WiFxVCB50oo"],
+    Biceps: ["https://www.youtube.com/watch?v=ykJmrZ5v0Oo","https://www.youtube.com/watch?v=6bTcFTRoqcw","https://www.youtube.com/watch?v=CFBZ4jN1CMI","https://www.youtube.com/watch?v=BbxA1QF3TxY","https://www.youtube.com/watch?v=aTYlqC_JacQ"],
+    Thighs:["https://www.youtube.com/watch?v=oQ2qU4Cab0w","https://www.youtube.com/watch?v=v_c67Omje48","https://www.youtube.com/watch?v=uYumuL_G_V0","https://www.youtube.com/watch?v=0tn5K9NlCfo","https://www.youtube.com/watch?v=m0FOpMEgero","https://www.youtube.com/watch?v=_meXEWq5MOQ"],
+    Forearms:["https://www.youtube.com/watch?v=FW7URAaC-vE","https://www.youtube.com/watch?v=kTMJp7hILmk","https://www.youtube.com/watch?v=hnxTScazRs0","https://www.youtube.com/watch?v=xrS1UCC24do"],
+    Abs:["https://www.youtube.com/watch?v=MKmrqcoCZ-M","https://www.youtube.com/watch?v=wiFNA3sqjCA","https://www.youtube.com/watch?v=U4L_6JEv9Jg","https://www.youtube.com/watch?v=N_s9em1xTqU","https://www.youtube.com/watch?v=wkD8rjkodUI"],
+    Calves:["https://www.youtube.com/watch?v=3ZRe_QpvRPg","https://www.youtube.com/watch?v=3UWi44yN-wM","https://www.youtube.com/watch?v=XNDxCuY4l1U"],
+    Lats:["https://www.youtube.com/watch?v=JGeRYIZdojU","https://www.youtube.com/watch?v=G9uNaXGTJ4w","https://www.youtube.com/watch?v=7IV729pBFUc","https://www.youtube.com/watch?v=zVNSVxv8M8A","https://www.youtube.com/watch?v=ca95JZzzsGs","https://www.youtube.com/watch?v=VprlTxpB1rk"],
+    Triceps:["https://www.youtube.com/watch?v=jR7Y5YcugYc","https://www.youtube.com/watch?v=_g97w3QfD6E","https://www.youtube.com/watch?v=ynm9hhHJFEU","https://www.youtube.com/watch?v=LlBqt8dksdk","https://www.youtube.com/watch?v=ernSa92jYKc"],
+    'Lower back':["https://www.youtube.com/watch?v=h2iKcNldw-g","https://www.youtube.com/watch?v=p6KK6yHxd4k","https://www.youtube.com/watch?v=yYUD2GwXlI8"],
+    Glutes:["https://www.youtube.com/watch?v=ph3pddpKzzw","https://www.youtube.com/watch?v=L1qG25DhAk4","https://www.youtube.com/watch?v=YA-h3n9L4YU","https://www.youtube.com/watch?v=9O3lA9HsZU8"],
+    Hamstrings:["https://www.youtube.com/watch?v=CN_7cz3P-1U","https://www.youtube.com/watch?v=GxsLrTzyGUU","https://www.youtube.com/watch?v=vHMRcECLwFM","Trap Bar Rack Pullhttps://www.youtube.com/watch?v=p-EfiGOK7XQ"]
+};
+
+    // Dodaj inne części ciała i odpowiednie linki do nich tutaj
+
+// Funkcja do obsługi kliknięć na elemencie SVG dla Front
+function handleFrontClick(event) {
+    if (event.target.tagName === "path") {
+        const clickedPathId = event.target.id;
+        const exerciseInfoDiv = document.querySelector(".exercise-info");
+        // Sprawdź, czy istnieje lista ćwiczeń dla klikniętej części ciała
+        if (exercises[clickedPathId]) {
+            // Jeśli tak, wyświetl listę ćwiczeń w .exercise-info jako linki
+            exerciseInfoDiv.innerHTML = "<h3>" + clickedPathId + " exercises:</h3><ul>" + exercises[clickedPathId].map((exercise, index) => {
+                const link = links[clickedPathId][index];
+                return "<li data-url='" + link + "'>" + exercise + "</li>"; // Dodajemy atrybut data-url z adresem URL
+            }).join("") + "</ul>";
+                  
+        } else {
+            // Jeśli nie, wyświetl informację o braku ćwiczeń
+            exerciseInfoDiv.textContent = "There is no " + clickedPathId + " exercises";
+        }
+    }
+}
+
+// Funkcja do obsługi kliknięć na elemencie SVG dla Back
+function handleBackClick(event) {
+    if (event.target.tagName === "path") {
+        const clickedPathId = event.target.id;
+        const exerciseInfoDiv = document.querySelector(".exercise-info");
+        // Sprawdź, czy istnieje lista ćwiczeń dla klikniętej części ciała
+        if (exercises[clickedPathId]) {
+            // Jeśli tak, wyświetl listę ćwiczeń w .exercise-info
+            exerciseInfoDiv.innerHTML = "<h3>" + clickedPathId + " exercises:</h3><ul>" + exercises[clickedPathId].map((exercise, index) => {
+                const link = links[clickedPathId][index];
+                return "<li data-url='" + link + "'>" + exercise + "</li>"; // Dodajemy atrybut data-url z adresem URL
+            }).join("") + "</ul>";
+                  
+        } else {
+            // Jeśli nie, wyświetl informację o braku ćwiczeń
+            exerciseInfoDiv.textContent = "There is no " + clickedPathId + " exercises";
+        }
+    }
+}
+
+// Dodaj nasłuchiwacze zdarzeń dla Front i Back
+const frontSVG = document.getElementById("Front");
+frontSVG.addEventListener("click", handleFrontClick);
+
+const backSVG = document.getElementById("Back");
+backSVG.addEventListener("click", handleBackClick);
+
+// Funkcja obsługująca kliknięcia w elementy listy
+document.querySelector(".exercise-info").addEventListener("click", function(event) {
+    const target = event.target;
+    // Sprawdź, czy kliknięty element to <li>
+    if (target.tagName === "LI") {
+        // Pobierz adres URL z atrybutu data-url
+        const url = target.getAttribute("data-url");
+        // Otwórz link w nowym oknie
+        window.open(url, "_blank");
+    }
 });
