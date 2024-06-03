@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-$error_message = '';
 $host = '195.150.230.208';
 $port = '5432';
 $dbname = '2023_chmura_daniel';
@@ -23,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if ($password == $decoded_password) {
             $_SESSION['user_logged_in'] = true;
+            $_SESSION['user_email'] = $email;
             echo "<script>window.location.href = 'index.php';</script>";
         } else {
             $error_message = 'Incorrect username or password!';
