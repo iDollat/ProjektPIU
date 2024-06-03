@@ -122,6 +122,12 @@ document.addEventListener('scroll', () => {
     nav.style.borderImage = `linear-gradient(to right, #c2d700 ${scrolledPercent}%, transparent ${scrolledPercent}%) 1`; // Pasek progresu
 });
 
+window.addEventListener('load', () => {
+    const home = document.querySelector('#home')
+
+    home.classList.add('active');
+});
+
 document.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('.container'); // Pobierz wszystkie sekcje
 
