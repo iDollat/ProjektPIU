@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($result) {
-        echo "<script>alert('Mail already used');</script>";
+        $error_message = 'Mail already used!';
     } else {
         $verification_code = generateVerificationCode();
         
@@ -73,5 +73,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
+header("Location: singup.php?error=" . urlencode($error_message));
+exit;
 ?>
 

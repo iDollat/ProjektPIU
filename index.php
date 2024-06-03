@@ -50,6 +50,7 @@
     </header>
 
     <div class="container" id="exercises">
+        
         <h2 class="title"><span class="animated" data-text="Exercises">Exercises</span></h2>
         <span class="blur"></span>
         <div class="headers">
