@@ -285,24 +285,24 @@ header .image img:hover{
     text-align: center;
 }
 
-#glowka {
+#Front path {
     stroke-width: 0.3; /* Grubość obramowania */
     stroke: #000000; /* Kolor obramowania */
     transform: translateY(400px) translateX(10px) scale(3.5); 
 }
 
-#glowka:hover {
+#Front path:hover {
     fill: #c2d700; 
     cursor: pointer; 
 }
 
-#glowka2 {
+#Back path {
     stroke-width: 0.3; /* Grubość obramowania */
     stroke: rgb(0, 0, 0); /* Kolor obramowania */
     transform: translateY(400px) translateX(-315px) scale(3.5); 
 }
 
-#glowka2:hover {
+#Back path:hover {
     fill: #c2d700; 
     cursor: pointer; 
 }
@@ -334,4 +334,22 @@ h4 {
     margin-right: 306px;
 }
 
+.container #exercises {
+    display: flex;
+}
 
+.exercise-info {
+    float: right;
+    width: 30%;
+    color: #fff;
+    height: 512px;
+    text-align: center;
+    display: flex; /* Flexbox, aby umożliwić centrowanie w pionie */
+    justify-content: center; /* Centrowanie w poziomie */
+    align-items: center; /* Centrowanie w pionie */
+}
+
+.exercises-container {
+    display: inline-block;
+    width: 70%;
+}

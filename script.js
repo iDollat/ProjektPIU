@@ -46,7 +46,7 @@ function calculateCalories() {
     document.getElementById("calorie-result").textContent = "Your estimated daily caloric need is " + tdee.toFixed(0) + " kcal.";
 }
 
-function goToLogin() {
+function logOut() {
     window.location.href = "singup.php";
 }
 
@@ -137,4 +137,27 @@ document.addEventListener('scroll', () => {
     });
 });
 
-// można zrobić z tych animowanych napisów coś w stylu progress bara
+// Funkcja do obsługi kliknięć na elemencie SVG dla Front
+function handleFrontClick(event) {
+    if (event.target.tagName === "path") {
+        const clickedPathId = event.target.id;
+        const exerciseInfoDiv = document.querySelector(".exercise-info");
+        exerciseInfoDiv.textContent = clickedPathId;
+    }
+}
+
+// Funkcja do obsługi kliknięć na elemencie SVG dla Back
+function handleBackClick(event) {
+    if (event.target.tagName === "path") {
+        const clickedPathId = event.target.id;
+        const exerciseInfoDiv = document.querySelector(".exercise-info");
+        exerciseInfoDiv.textContent = clickedPathId;
+    }
+}
+
+// Dodaj nasłuchiwacze zdarzeń dla Front i Back
+const frontSVG = document.getElementById("Front");
+frontSVG.addEventListener("click", handleFrontClick);
+
+const backSVG = document.getElementById("Back");
+backSVG.addEventListener("click", handleBackClick);
