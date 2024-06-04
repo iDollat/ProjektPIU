@@ -6,13 +6,7 @@ require 'phpmailer/src/Exception.php';
 require 'phpmailer/src/PHPMailer.php';
 require 'phpmailer/src/SMTP.php';
 
-$host = '195.150.230.208';
-$port = '5432';
-$dbname = '2023_chmura_daniel';
-$user = '2023_chmura_daniel';
-$password = 'Danielchmura22553307022002!';
-
-$conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
+include "db.php";
 
 function generateVerificationCode() {
     return str_pad(rand(1, 1000000), 7, "0", STR_PAD_LEFT);
