@@ -11,14 +11,10 @@ if (!isset($_SESSION['user_logged_in'])) {
     header("Location: singup.php");
 }
 
-$host = '195.150.230.208';
-$port = '5432';
-$dbname = '2023_chmura_daniel';
-$user = '2023_chmura_daniel';
-$password = 'Danielchmura22553307022002!';
+include 'db.php';
 
-$conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname;user=$user;password=$password");
 $email = $_SESSION['user_email'];
+
 $stmt = $conn->prepare("SELECT verified, verification_code FROM project_psm.users WHERE email = :email");
 $stmt->bindParam(':email', $email);
 $stmt->execute();
