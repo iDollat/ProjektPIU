@@ -30,7 +30,7 @@ Pasek nawigacji na górze strony wyświetla pasek postępu, wskazujący, jak du�
 
 ### Animowany tekst
 
-Na stronie głównej znajduje się animowany tekst "FIT YOUR LIFE".
+Na stronie głównej znajduje się animowany tekst "WE ARE FITTBASE".
 
 ## Struktura plików
 
