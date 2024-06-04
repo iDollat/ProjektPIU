@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_logged_in'])) {
             <li class="link"><a href="#bmi-calculator">BMI</a></li>
             <li class="link"><a href="#calorie-calculator">Calories</a></li>
             <li class="link"><a href="#" onclick="goToVerified()">Verification</a></li>
-            <li class="link"><a href="#">More</a></li>
+            <li class="link"><a href="#" onclick="goToMore()">More</a></li>
         </ul>
 
         <form method="post">

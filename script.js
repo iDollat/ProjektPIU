@@ -63,6 +63,10 @@ function goToVerified() {
     window.location.href = "verified.php";
 }
 
+function goToMore() {
+    window.location.href = "more.php";
+}
+
 // Funkcje dla formularza rejestracji/logowania (jeśli występują w innych częściach strony)
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
