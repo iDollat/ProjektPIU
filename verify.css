@@ -1,5 +1,10 @@
 .verified-box {
     background: linear-gradient(45deg, #1b5e20, #388e3c, #1b5e20);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
 }
 
 .unverified-box {
@@ -9,12 +14,11 @@
 .box {
     width: 300px;
     height: 200px;
-    text-align: center;
-    line-height: 50px;
     margin: 0 auto;
     margin-top: 100px;
     color: white;
     border-radius: 10px;
+    padding: 5px;
     transition: transform 0.3s ease-in-out;
     text-align: center;
     align-items: center;
@@ -38,6 +42,7 @@
     border: 1px solid #c2d700;
     text-align: center;
     color: white;
+    margin-bottom: 5px;
 }
 
 ::placeholder {

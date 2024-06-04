@@ -19,6 +19,7 @@ $stmt = $conn->prepare("SELECT verified, verification_code FROM project_psm.user
 $stmt->bindParam(':email', $email);
 $stmt->execute();
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
+$showVerificationForm = !$result['verified'];
 
 if (!empty($result)) {
     if ($result['verified']) {
@@ -48,6 +49,7 @@ if (isset($_POST['send_code'])) {
         $message = "Valid verification code. User has been verified.";
         $boxClass = "verified-box";
         $icon = '<i class="ri-check-line"></i>'; // Dodaj ikonkę, jeśli użytkownik zostanie zweryfikowany
+        $showVerificationForm = false;
     } else {
         $message = "Error: Verification code is invalid.";
         $boxClass = "unverified-box";
@@ -87,7 +89,7 @@ if (isset($_POST['send_code'])) {
     <div class="box <?php echo $boxClass; ?>">
         <?php echo $icon; ?>
         <?php echo $message; ?>
-        <?php if (!$result['verified']) { ?>
+        <?php if ($showVerificationForm) { ?>
             <form class="verification-form" method="post">
                 <input type="text" name="verification_code" placeholder="Enter verification code" required>
                 <button type="submit" name="send_code" class="btn">Verify code</button>

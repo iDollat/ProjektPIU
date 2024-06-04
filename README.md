@@ -1,5 +1,3 @@
-Na podstawie wszystkich dostarczonych plików, oto pełna dokumentacja projektu FitBase w języku Markdown:
-
 # Projekt FitBase
 
 FitBase to kompleksowa aplikacja internetowa stworzona w celu wspomagania użytkowników w prowadzeniu zdrowego stylu życia. Aplikacja oferuje szereg przydatnych funkcjonalności, takich jak kalkulatory BMI i zapotrzebowania kalorycznego, a także interaktywne poradniki ćwiczeń. Projekt został zrealizowany w technologiach: PHP, JavaScript, HTML i CSS.
